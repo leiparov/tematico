@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 import play.db.ebean.Model;
 
-@Entity
+
 public class Task extends Model {
 
     @Id

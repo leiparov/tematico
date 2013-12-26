@@ -4,7 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 import play.db.ebean.*;
 
-@Entity
+
 public class Project extends Model {
 
     @Id
@@ -29,11 +29,11 @@ public class Project extends Model {
         return project;
     }
 
-    public static List<Project> findInvolving(String user) {
+    /*public static List<Project> findInvolving(String user) {
         return find.where()
             .eq("members.email", user)
             .findList();
-    }
+    }*/
     
     public static boolean isMember(Long project, String user) {
         return find.where()

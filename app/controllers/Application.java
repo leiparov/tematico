@@ -1,7 +1,5 @@
 package controllers;
 
-import models.Project;
-import models.Task;
 import models.User;
 import play.Routes;
 import play.data.*;
@@ -13,9 +11,7 @@ public class Application extends Controller {
 
 	@Security.Authenticated(Secured.class)
 	public static Result index() {
-		return ok(index.render(Project.findInvolving(request().username()),
-				Task.findTodoInvolving(request().username()),
-				User.find.byId(request().username())));
+		return ok(index.render(User.find.byId(request().username())));
 	}
 
 	public static Result login() {

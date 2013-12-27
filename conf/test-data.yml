@@ -1,16 +1,7 @@
 # Users
 
-- &admin !!models.User
+- &admin !!models.entities.Usuario
+    dni:        12345678
     email:      admin@example.com
-    name:       Administrador
+    nombre:     Administrador
     password:   admin
-
-- &jane !!models.User
-    email:      jane@example.com
-    name:       Jane
-    password:   secret
-
-- &jeff !!models.User
-    email:      jeff@example.com
-    name:       Jeff
-    password:   secret

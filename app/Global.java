@@ -18,6 +18,9 @@ public class Global extends GlobalSettings {
         // Check if the database is empty
         if (Ebean.find(Usuario.class).findList().size() == 0) {
             List<?> lista = (List<?>) Yaml.load("test-data.yml");
+            for(Object o : lista){
+                Ebean.save(o);                
+            }
 
         }
     }

@@ -155,7 +155,7 @@ public class Login {
       ctx.session().clear();
       ctx.session().put("dni", Integer.toString(u.getDni()));
       ctx.session().put("nombre", u.getNombre() + " " + u.getApellido());
-      ctx.session().put("foto", u.isFoto() + "");
+     
       ctx.session().put("sexo", u.getSexo().equals(Sexo.MASCULINO) + "");
       ctx.session().put("tipo", u.getClass().getName());
    }

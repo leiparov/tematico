@@ -20,7 +20,7 @@ public class Usuario {
 	@SuppressWarnings("unused")
 	private String password;
 	private boolean inhabilitado = false;
-	private boolean foto = false;
+	
 	private String nombre;
 	private String apellido;
 	private Sexo sexo;
@@ -55,15 +55,7 @@ public class Usuario {
 
 	public void setInhabilitado(boolean inhabilitado) {
 		this.inhabilitado = inhabilitado;
-	}
-
-	public boolean isFoto() {
-		return foto;
-	}
-
-	public void setFoto(boolean foto) {
-		this.foto = foto;
-	}
+	}	
 
 	public String getNombre() {
 		return nombre;

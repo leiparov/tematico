@@ -43,7 +43,6 @@ create table usuario (
   email                     varchar(255),
   password                  varchar(255),
   inhabilitado              boolean,
-  foto                      boolean,
   nombre                    varchar(255),
   apellido                  varchar(255),
   sexo                      integer,

@@ -7,78 +7,29 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
 import play.data.validation.Constraints;
+import play.db.ebean.Model;
+import play.db.ebean.Model.Finder;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("USUARIO")
-public class Usuario {
+public class Usuario extends Model {
 
 	@Id
-	private int dni;
-	@Constraints.Required
-	private String email;
-	@SuppressWarnings("unused")
-	private String password;
-	private boolean inhabilitado = false;
-	
-	private String nombre;
-	private String apellido;
-	private Sexo sexo;
+	public String email;
+	public String password;
+	public boolean inhabilitado = false;
+	public int dni;
+	public String nombre;
+	public String apellido;
+	public Sexo sexo;
 
-	public int getDni() {
-		return dni;
-	}
+	public static Finder<String, Usuario> find = new Finder<String, Usuario>(
+			String.class, Usuario.class);
 
-	public void setDni(int dni) {
-		this.dni = dni;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public boolean isInhabilitado() {
-		return inhabilitado;
-	}
-
-	public void setInhabilitado(boolean inhabilitado) {
-		this.inhabilitado = inhabilitado;
+	public static Usuario authenticate(String email, String password) {
+		return find.where().eq("email", email).eq("password", password)
+				.findUnique();
 	}	
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-
-	public Sexo getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(Sexo sexo) {
-		this.sexo = sexo;
-	}
 
 }

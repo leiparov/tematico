@@ -1,35 +1,25 @@
-@(menuNav: Html, titlePrefix: String = "")(body: Html)
-<!DOCTYPE html>
+@(usuario: models.entities.Usuario)(body: Html)
 <html>
     <head>
-        <title>@{if(titlePrefix.length != 0) titlePrefix + " - " else ""}Sistema de ex&aacute;menes online</title>
-        
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.min.css")">
-        <link rel="stylesheet" media="all" href="@routes.Assets.at("stylesheets/prettify.css")">
-	    <link rel="stylesheet" media="all" href="@routes.Assets.at("stylesheets/bootstrap-duallistbox.css")">
-	    <link rel="stylesheet" media="all" href="@routes.Assets.at("stylesheets/bootstrap-datepicker.css")">
-	    <link rel="stylesheet" media="all" href="@routes.Assets.at("stylesheets/bootstrap-timepicker.min.css")">
-
-        <script src="@routes.Application.jsRoutes()" type="text/javascript"></script>
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.at("javascripts/modernizr-custom.min.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.at("javascripts/prettify.js")" type="text/javascript"></script>
-        <script src="@routes.Assets.at("javascripts/preguntas.js")" type="text/javascript"></script>
-        	
-
+        <title>Temático movistar</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")"></script>
+		<script type="text/javascript" src="@routes.Application.jsRoutes()"></script>
+    
     </head>
     <body>
         <header>
-            @header()
-        </header>
-        <nav role="navigation" class="navbar navbar-default">
-            @menuNav
-        </nav>
-        <main>
+		    <a href="@routes.Application.index" id="logo"><span>Zen</span>tasks</a>
+		    <dl id="user">
+			    <dt>@usuario.nombre<span>(@usuario.email)</span></dt>
+			    <dd>
+			        <a href="@routes.Application.logout()">Logout</a>
+			    </dd>
+			</dl>
+		</header>
+        
+        <section id="main">
             @body
-        </main>
-    </body>
+        </section>
+        </body>
 </html>

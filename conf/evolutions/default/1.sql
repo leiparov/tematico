@@ -16,7 +16,7 @@ create table motivo (
   resultado_id              bigint not null,
   codigo                    varchar(255),
   descripcion               varchar(255),
-  owner_dni                 integer,
+  owner_email               varchar(255),
   constraint pk_motivo primary key (id))
 ;
 
@@ -39,15 +39,15 @@ create table submotivo (
 
 create table usuario (
   dtype                     varchar(10) not null,
-  dni                       integer not null,
-  email                     varchar(255),
+  email                     varchar(255) not null,
   password                  varchar(255),
   inhabilitado              boolean,
+  dni                       integer,
   nombre                    varchar(255),
   apellido                  varchar(255),
   sexo                      integer,
   constraint ck_usuario_sexo check (sexo in (0,1)),
-  constraint pk_usuario primary key (dni))
+  constraint pk_usuario primary key (email))
 ;
 
 
@@ -68,8 +68,8 @@ create sequence usuario_seq;
 
 alter table motivo add constraint fk_motivo_resultado_1 foreign key (resultado_id) references resultado (id) on delete restrict on update restrict;
 create index ix_motivo_resultado_1 on motivo (resultado_id);
-alter table motivo add constraint fk_motivo_owner_2 foreign key (owner_dni) references usuario (dni) on delete restrict on update restrict;
-create index ix_motivo_owner_2 on motivo (owner_dni);
+alter table motivo add constraint fk_motivo_owner_2 foreign key (owner_email) references usuario (email) on delete restrict on update restrict;
+create index ix_motivo_owner_2 on motivo (owner_email);
 alter table submotivo add constraint fk_submotivo_motivo_3 foreign key (motivo_id) references motivo (id) on delete restrict on update restrict;
 create index ix_submotivo_motivo_3 on submotivo (motivo_id);
 

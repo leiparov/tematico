@@ -38,7 +38,6 @@ create table submotivo (
 ;
 
 create table usuario (
-  dtype                     varchar(10) not null,
   email                     varchar(255) not null,
   password                  varchar(255),
   inhabilitado              boolean,

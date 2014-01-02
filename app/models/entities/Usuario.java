@@ -1,18 +1,11 @@
 package models.entities;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
-import play.data.validation.Constraints;
 import play.db.ebean.Model;
-import play.db.ebean.Model.Finder;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("USUARIO")
 public class Usuario extends Model {
 
 	@Id

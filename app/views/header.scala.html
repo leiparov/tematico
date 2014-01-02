@@ -1,0 +1,16 @@
+@(usuario: models.entities.Usuario)
+<div class="pull-left">
+   <a href="@routes.Application.index" id="logo"><h1>Temático movistar</h1></a>
+</div>
+<div class="pull-right">
+   <span class="user-greet">Bienvenido,<br/><strong>@usuario.nombre<span>(@usuario.email)</span></strong></span>
+  
+	<div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">         
+         <span class="caret"></span>
+      </button>
+      @menuLogin()
+   </div>
+			    
+			
+</div>
